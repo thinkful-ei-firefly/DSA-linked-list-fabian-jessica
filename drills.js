@@ -1,5 +1,6 @@
 'use strict';
 const LinkedList = require('./list');
+const { display, size, isEmpty, reverseList } = require('./listFns');
 
 let SLL = new LinkedList();
 
@@ -9,31 +10,39 @@ SLL.insertLast('Helo');
 SLL.insertLast('Husker');
 SLL.insertLast('Starbuck');
 
-console.log(SLL.head);
-console.log(SLL.head.next);
-console.log(SLL.head.next.next);
-console.log(SLL.head.next.next.next);
-console.log(SLL.head.next.next.next.next);
-
 SLL.insertLast('Tauhida');
-console.log(SLL.head.next.next.next.next.next);
 
 SLL.remove('squirrel');
 
 SLL.insertBefore('Athena', 'Boomer');
-console.log(SLL.head);
-console.log(SLL.head.next);
-console.log(SLL.head.next.next);
 
 SLL.insertAfter('Hotdog', 'Helo');
-console.log(SLL.head.next.next);
-console.log(SLL.head.next.next.next);
-console.log(SLL.head.next.next.next.next);
 
 SLL.insertAt('Kat', 2);
-console.log(SLL.head);
-console.log(SLL.head.next);
-console.log(SLL.head.next.next);
-console.log(SLL.head.next.next.next);
 
 SLL.remove('Tauhida');
+
+display(SLL);
+
+// Analyze the following function (without running it in an IDE)
+// to determine what problem it is trying to solve.
+// What is the time complexity of this algorithm?
+
+// function WhatDoesThisProgramDo(lst) {
+//     let current = lst.head;
+//     while (current !== null) {
+//         let newNode = current;
+//         while (newNode.next !== null) {
+//             if (newNode.next.value === current.value) {
+//                 newNode.next = newNode.next.next;
+//             }
+//             else {
+//                 newNode = newNode.next;
+//             }
+//         }
+//         current = current.next;
+//     }
+// }
+
+//This algorithm removes duplicate values from a given linked list.
+//It has time complexity O(n^2)
