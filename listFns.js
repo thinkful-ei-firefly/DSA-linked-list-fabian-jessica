@@ -118,5 +118,37 @@ function hasCycle (linkedList) {
   return false;
 }
 
+function reverseDoubleList (linkedList) {
+  const listSize = size(linkedList);
+  if (listSize <= 1) return linkedList;
+  if (listSize === 2) {
+    let temp1 = linkedList.head;
+    let temp2 = linkedList.head.next;
+    temp2.next = temp1;
+    temp1.next = null;
+    linkedList.head = temp2;
+    temp2.prev = null;
+    temp1.prev = temp2;
+    return linkedList;
+  }
+  let temp1 = linkedList.head;
+  let temp2 = linkedList.head.next;
+  let temp3 = linkedList.head.next.next;
+  temp1.next = null;
+  while (temp3.next !== null) {
+    temp2.next = temp1;
+    temp1.prev = temp2;
+    temp1 = temp2;
+    temp2 = temp3;
+    temp3 = temp3.next;
+  }
+  temp2.next = temp1;
+  temp1.prev = temp2;
+  temp3.next = temp2;
+  temp2.prev = temp3;
+  linkedList.head = temp3;
+  return linkedList;
+}
+
 module.exports = { display, size, isEmpty, findPrevious, findLast, 
-  reverseList, return3rdFromEnd, returnMiddleValue, hasCycle };
+  reverseList, return3rdFromEnd, returnMiddleValue, hasCycle, reverseDoubleList };

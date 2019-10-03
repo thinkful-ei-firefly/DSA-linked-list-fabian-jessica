@@ -1,28 +1,46 @@
 'use strict';
 const LinkedList = require('./list');
+const DoubleLinkedList = require('./doubleList');
 const { display, size, isEmpty, reverseList } = require('./listFns');
 
-let SLL = new LinkedList();
+function main () {
+  let SLL = new LinkedList();
 
-SLL.insertLast('Apollo');
-SLL.insertLast('Boomer');
-SLL.insertLast('Helo');
-SLL.insertLast('Husker');
-SLL.insertLast('Starbuck');
+  SLL.insertLast('Apollo');
+  SLL.insertLast('Boomer');
+  SLL.insertLast('Helo');
+  SLL.insertLast('Husker');
+  SLL.insertLast('Starbuck');
 
-SLL.insertLast('Tauhida');
+  SLL.insertLast('Tauhida');
 
-SLL.remove('squirrel');
+  SLL.remove('squirrel');
 
-SLL.insertBefore('Athena', 'Boomer');
+  SLL.insertBefore('Athena', 'Boomer');
 
-SLL.insertAfter('Hotdog', 'Helo');
+  SLL.insertAfter('Hotdog', 'Helo');
 
-SLL.insertAt('Kat', 2);
+  SLL.insertAt('Kat', 2);
 
-SLL.remove('Tauhida');
+  SLL.remove('Tauhida');
 
-display(SLL);
+  display(SLL);
+}
+
+function mainDLL () {
+  const DLL = new DoubleLinkedList();
+  DLL.insertFirst('Sagittaron');
+  DLL.insertFirst('Picon');
+  DLL.insertFirst('Gemenon');
+  DLL.insertFirst('Caprica');
+  DLL.insertFirst('Aquaria');
+
+  DLL.insertLast('Tauron');
+  DLL.remove('Picon');
+  display(DLL);
+}
+
+mainDLL();
 
 // Analyze the following function (without running it in an IDE)
 // to determine what problem it is trying to solve.
